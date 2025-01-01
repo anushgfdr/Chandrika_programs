@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Database</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+        }
+        button[type="reset"] {
+            background-color: #f44336;
+            color: white;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Database Form</h1>
+    <form id="studentForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" placeholder="Enter your city" required>
+
+        <label for="pin">Pin Code:</label>
+        <input type="text" id="pin" name="pin" placeholder="Enter your pin code" required>
+
+        <label for="m1">Marks 1:</label>
+        <input type="number" id="m1" name="m1" placeholder="Enter marks for subject 1" required>
+
+        <label for="m2">Marks 2:</label>
+        <input type="number" id="m2" name="m2" placeholder="Enter marks for subject 2" required>
+
+        <label for="m3">Marks 3:</label>
+        <input type="number" id="m3" name="m3" placeholder="Enter marks for subject 3" required>
+
+        <button type="button" onclick="addStudent()">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <h2>Student Database</h2>
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>City</th>
+                <th>Pin</th>
+                <th>Marks 1</th>
+                <th>Marks 2</th>
+                <th>Marks 3</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        function addStudent() {
+            const form = document.getElementById('studentForm');
+            const table = document.getElementById('studentTable').querySelector('tbody');
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const city = document.getElementById('city').value;
+            const pin = document.getElementById('pin').value;
+            const m1 = document.getElementById('m1').value;
+            const m2 = document.getElementById('m2').value;
+            const m3 = document.getElementById('m3').value;
+
+            const row = table.insertRow();
+            row.innerHTML = `
+                <td>${name}</td>
+                <td>${phone}</td>
+                <td>${email}</td>
+                <td>${city}</td>
+                <td>${pin}</td>
+                <td>${m1}</td>
+                <td>${m2}</td>
+                <td>${m3}</td>
+            `;
+
+            form.reset();
+        }
+    </script>
+
+</body></html>
